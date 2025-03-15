@@ -1,0 +1,48 @@
+/* Ensure the header takes full width and has proper spacing */
+header {
+    max-width: 100%;
+    padding: 1rem 1rem; /* Mobile base */
+  }
+  
+  @media (min-width: 640px) { /* sm breakpoint */
+    header {
+      padding: 1.5rem 1.5rem; /* Slightly larger on small screens */
+    }
+  }
+  
+  @media (min-width: 1024px) { /* lg breakpoint */
+    header {
+      padding: 2rem 3rem; /* Even larger on desktop */
+    }
+  }
+  
+  /* Animation Keyframes (if not already in your CSS) */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slideInLeft {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  @keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+  }
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }
+  
+  /* Animation Classes */
+  .animate-fadeIn { animation: fadeIn 1s ease-in-out; }
+  .animate-slideInLeft { animation: slideInLeft 0.8s ease-out; }
+  .animate-slideInRight { animation: slideInRight 0.8s ease-out; }
+  .animate-float { animation: float 3s ease-in-out infinite; }
+  .animate-pulse { animation: pulse 2s ease-in-out infinite; }

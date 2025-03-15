@@ -1,0 +1,78 @@
+---
+/* Footer.astro */
+---
+
+<footer class="bg-white py-8 px-4 sm:px-8 md:px-20 border-t-4 border-dashed border-pink-400 relative">
+    <!-- Scribble Decoration -->
+    <svg class="absolute top-0 left-0 w-full h-12 pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <path d="M0,50 Q25,30 50,50 T100,50" stroke="#FF6B6B" stroke-width="3" fill="none" 
+        class="animate-draw" stroke-linecap="round" stroke-dasharray="150" stroke-dashoffset="150" />
+    </svg>
+  
+    <div class="max-w-7xl mx-auto">
+      <!-- Footer Content -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+        <!-- About Section -->
+        <div class="relative">
+          <h3 class="text-xl sm:text-2xl font-bold font-comic text-blue-400 mb-4 transform -rotate-2">
+           Risang Sasotyaningtyas
+          </h3>
+          <p class="text-base font-comic text-gray-700">
+            A whimsical blend of naturalism and realism, 
+            Explore my world of colors and stories.
+          </p>
+          <!-- Cartoon Star -->
+          <svg class="absolute -top-4 -left-4 w-10 h-10 animate-spin-slow" viewBox="0 0 50 50">
+            <path d="M25,0 L30,20 L50,25 L30,30 L25,50 L20,30 L0,25 L20,20 Z" fill="#FFD166" stroke="#FF6B6B" stroke-width="2" />
+          </svg>
+        </div>
+          <!-- Scribble Decoration -->
+          <svg class="absolute bottom-0 right-0 w-16 h-16 pointer-events-none" viewBox="0 0 100 100">
+            <path d="M80,20 Q60,40 80,60" stroke="#FF6B6B" stroke-width="3" fill="none" class="animate-draw-slow" />
+          </svg>
+        </div>
+          <!-- Cartoon Paintbrush -->
+          <svg class="absolute -bottom-4 -right-4 w-12 h-12 animate-swing" viewBox="0 0 100 100">
+            <path d="M20,80 L40,20 Q50,10 60,20 L80,80" fill="#FFD166" stroke="#FF6B6B" stroke-width="3" />
+            <path d="M30,70 Q50,90 70,70" fill="#06D6A0" stroke="#118AB2" stroke-width="2" />
+          </svg>
+        </div>
+      </div>
+  
+      <!-- Copyright -->
+      <div class="mt-8 text-center">
+        <p class="text-sm font-comic text-gray-600 relative inline-block">
+          © {new Date().getFullYear()} Risang's Personal Portofolio
+          <span class="absolute -bottom-2 left-0 w-full h-1 bg-pink-300 transform rotate-1"></span>
+        </p>
+      </div>
+    </div>
+  
+    <!-- Background Doodle -->
+    <svg class="absolute bottom-0 right-0 w-32 h-32 opacity-20 pointer-events-none hidden md:block" viewBox="0 0 100 100">
+      <path d="M10,90 Q30,70 50,90 T90,70" stroke="#06D6A0" stroke-width="2" fill="none" class="animate-draw-slow" />
+      <circle cx="50" cy="50" r="5" fill="#FF6B6B" />
+    </svg>
+  </footer>
+  
+  <style>
+    /* Add any additional footer-specific styles here */
+    .animate-spin-slow {
+      animation: spin 6s linear infinite;
+    }
+  
+    .animate-swing {
+      animation: swing 2s ease-in-out infinite;
+    }
+  
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+  
+    @keyframes swing {
+      0% { transform: rotate(-5deg); }
+      50% { transform: rotate(5deg); }
+      100% { transform: rotate(-5deg); }
+    }
+  </style>
