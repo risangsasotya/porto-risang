@@ -1,0 +1,42 @@
+---
+import "../styles/global.css";
+const { title, description } = Astro.props;
+import Header from "../shared/header.astro";
+import Footer from "../shared/footer.astro";
+---
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="" />
+    <title>{title} | Portofolio</title>
+    <link rel="stylesheet" href="https://atugatran.github.io/FontAwesome6Pro/css/all.min.css" />
+    <link rel="icon" href="/" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+  </head>
+  <body class="relative min-h-screen w-full overflow-auto">
+      <!-- Background Pattern -->
+      <div class="absolute inset-0">
+        <div class="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]"></div>
+      </div>
+	<main class="font-urbanist">
+      <Header />
+      <slot />
+      <Footer />
+    </main>
+  </body>
+</html>
+
+
+  

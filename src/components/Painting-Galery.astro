@@ -1,0 +1,303 @@
+---
+import "../styles/animations.css";
+import "../styles/galery.css";
+import { paintings } from '../data/paintings.astro';
+---
+
+<section id="gallery" class="bg-transparent min-h-screen px-4 sm:px-8 md:px-20 py-12">
+  <!-- Scribble Header -->
+  <h1 class="text-4xl sm:text-5xl font-bold mb-12 md:mb-16 tracking-tight animate-fadeIn">
+    <span class="relative inline-block font-comic">
+      My Gallery
+      <span class="absolute -bottom-2 xs:-bottom-3 left-0 w-full h-3 sm:h-4 bg-pink-400 z-0 opacity-30"></span>
+      <svg class="absolute -bottom-4 w-full" viewBox="0 0 200 15" preserveAspectRatio="none">
+        <path d="M0,5 Q25,15 50,5 T100,5 T150,5 T200,5" stroke="#FF6B6B" stroke-width="4" fill="none" 
+          class="animate-draw" stroke-linecap="round" stroke-dasharray="300" stroke-dashoffset="300" />
+      </svg>
+    </span>
+  </h1>
+  
+  <p class="text-lg md:text-2xl leading-relaxed max-w-3xl mb-12 font-comic animate-fadeIn">
+    Step into my whimsical world of naturalist-realist paintings!
+  </p>
+
+  <!-- Vertical Flow Gallery -->
+  <div class="gallery-container animate-slideInUp">
+    <!-- Feature Row - First two paintings with cartoon cards -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-10 mb-10">
+      <div class="md:col-span-7 gallery-item">
+        <div class="card-wrapper">
+          <div class="card bg-white p-4 relative overflow-hidden rounded-lg transform transition-all duration-300 hover:rotate-2 hover:scale-105 border-4 border-dashed border-blue-400">
+            <svg class="absolute top-0 left-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <path d="M10,10 Q30,5 50,15 T90,10" stroke="#FFD166" stroke-width="2" fill="none" 
+                class="animate-draw-slow" stroke-dasharray="200" stroke-dashoffset="200" />
+            </svg>
+            <div class="relative h-64 sm:h-72 md:h-96 overflow-hidden rounded-lg">
+              <img 
+                src={paintings[0].image} 
+                alt={paintings[0].title} 
+                class="gallery-image object-cover w-full h-full z-10 relative cursor-pointer"
+                data-index="0"
+              />
+              <div class="absolute bottom-4 right-4 bg-white p-2 rounded-full shadow-md transform rotate-6">
+                <i class="fas fa-expand text-blue-400"></i>
+              </div>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold mt-4 font-comic transform -rotate-1">{paintings[0].title}</h3>
+          </div>
+        </div>
+      </div>
+      
+      <div class="md:col-span-5 gallery-item">
+        <div class="card-wrapper">
+          <div class="card bg-white p-4 relative overflow-hidden rounded-lg transform transition-all duration-300 hover:-rotate-2 hover:scale-105 border-4 border-dotted border-pink-400">
+            <svg class="absolute top-0 right-0 w-20 h-20 pointer-events-none" viewBox="0 0 100 100">
+              <path d="M80,20 Q60,40 80,60 T60,80" stroke="#06D6A0" stroke-width="3" fill="none" 
+                class="animate-draw-slow" stroke-dasharray="200" stroke-dashoffset="200" />
+            </svg>
+            <div class="relative h-64 sm:h-72 md:h-96 overflow-hidden rounded-lg">
+              <img 
+                src={paintings[1].image} 
+                alt={paintings[1].title} 
+                class="gallery-image object-cover w-full h-full z-10 relative cursor-pointer"
+                data-index="1"
+              />
+              <div class="absolute bottom-4 right-4 bg-white p-2 rounded-full shadow-md">
+                <i class="fas fa-expand text-blue-400"></i>
+              </div>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold mt-4 font-comic transform rotate-1">{paintings[1].title}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Main Gallery Grid - Remaining paintings -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      {paintings.slice(2).map((painting, index) => (
+        <div class="gallery-item relative">
+          <div class="card-wrapper">
+            <div class="card bg-white p-3 sm:p-4 relative overflow-hidden rounded-lg transform transition-all duration-300 hover:scale-105 hover:rotate-2 border-4 border-dashed"
+              style={`border-color: ${['#FF6B6B', '#06D6A0', '#118AB2', '#FFD166'][index % 4]}`}>
+              {(index % 3 === 0) && 
+                <svg class="absolute -top-4 -right-4 w-8 sm:w-10 h-8 sm:h-10 pointer-events-none" viewBox="0 0 100 100">
+                  <path d="M80,20 Q60,40 80,60" stroke="#FF6B6B" stroke-width="2" fill="none" class="animate-draw-slow" />
+                </svg>
+              }
+              {(index % 4 === 0) && 
+                <svg class="absolute -bottom-4 -left-4 w-8 sm:w-12 h-8 sm:h-12 pointer-events-none" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="30" stroke="#06D6A0" stroke-width="2" fill="none" class="animate-draw-slow" />
+                </svg>
+              }
+              <div class="relative h-48 sm:h-56 md:h-72 overflow-hidden rounded-lg">
+                <img 
+                  src={painting.image} 
+                  alt={painting.title} 
+                  class="gallery-image object-cover w-full h-full z-10 relative cursor-pointer"
+                  data-index={index + 2}
+                />
+                <div class="absolute bottom-3 right-3 bg-white p-2 rounded-full shadow-md">
+                  <i class="fas fa-expand text-blue-400"></i>
+                </div>
+              </div>
+              <h3 class="text-lg sm:text-xl font-bold mt-3 font-comic" 
+                style={`transform: rotate(${(index % 2 === 0) ? '1deg' : '-1deg'}`}>
+                {painting.title}
+              </h3>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Cartoon-Style Preview Modal -->
+  <div class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center" id="preview-modal">
+    <div class="relative bg-white rounded-xl p-4 sm:p-6 max-w-5xl w-full mx-4 sm:m-6 animate-fadeIn overflow-y-auto max-h-[95vh] border-8 border-dashed border-yellow-400">
+      <svg class="absolute top-0 left-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <!-- Removed empty SVG content -->
+      </svg>
+      <button class="absolute top-2 right-2 sm:top-4 sm:right-4 text-gray-800 hover:text-pink-400 bg-white rounded-full p-1 z-50 shadow-md transition-transform hover:rotate-90" id="close-modal">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+      
+      <div class="flex flex-col md:flex-row items-center gap-6 sm:gap-8 pt-6 sm:pt-0">
+        <div class="w-full md:w-2/3 relative">
+          <div class="p-2 sm:p-3 bg-white border-4 border-dotted border-blue-400 rounded-lg relative">
+            <svg class="absolute -top-4 -left-4 w-12 h-12 pointer-events-none" viewBox="0 0 100 100">
+              <path d="M0,0 Q20,10 10,30" stroke="#FF6B6B" stroke-width="4" fill="none" class="animate-draw" />
+            </svg>
+            <img src="" alt="" class="modal-image object-contain w-full max-h-[40vh] sm:max-h-[50vh] md:max-h-[60vh] rounded-lg z-10 relative" id="modal-image">
+          </div>
+        </div>
+        
+        <div class="w-full md:w-1/3 text-left mt-4 md:mt-0">
+          <h2 class="text-xl sm:text-2xl font-bold mb-4 font-comic relative inline-block" id="modal-title">
+            <span class="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-1 sm:h-2 bg-pink-300 z-0"></span>
+            <span class="relative z-10">Title</span>
+          </h2>
+          <p class="text-base sm:text-lg font-comic" id="modal-description">Description</p>
+          
+          <div class="mt-6 flex items-center">
+            <svg width="40" height="40" viewBox="0 0 100 100" class="mr-2 animate-swing">
+              <path d="M20,20 Q0,50 20,80 L80,80 Q100,50 80,20 Z" fill="#FFD166" stroke="#FF6B6B" stroke-width="3" />
+              <circle cx="30" cy="40" r="10" fill="#FF6B6B" />
+              <circle cx="50" cy="30" r="10" fill="#06D6A0" />
+              <circle cx="70" cy="40" r="10" fill="#118AB2" />
+            </svg>
+            <span class="font-comic text-lg">Hand-painted with love!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const paintings = [
+  {
+      "image": "/Assets/Karya/1.webp",
+      "title": "BAKAT",
+      "description": "Lukisan ini beraliran kubisme, menceritakan tentang pencarian jati diri pada diri manusia ketika seseorang kehilangan arah dan tidak tahu apa bakatnya. Lukisan ini berwarna vibrant dikarenakan golongan warna yang cerah, tegas, dan kontras. Warna ini mampu menimbulkan kesan yang modern, kontemporer, ekspreif, dan dapat menciptakan kesan dramatis, serta mampu menonjolkan kesan pada ruangan. "
+    },
+    {
+      "image": "/Assets/Karya/2.webp",
+      "title": "NAFSU BERPACU DENGAN WAKTU",
+      "description": "Karya dari lukisan ini beraliran surealisme. Ketika nafsu berpacu dengan waktu yang ada hanyalah nafsu, dimana sudah tidak lagi bisa melihat, nafsu yang ada di dalam diri manusia pada dasarnya adalah nafsu yang sama dengan hewan."
+    },
+    {
+      "image": "/Assets/Karya/3.webp",
+      "title": "LIMA PENARI",
+      "description": "karya dari lukisan ini beraliran ekspresionisme yang menceritakan 5 penari dengan latar Pura penari tersebut di kelilingi oleh tanah yang berwarna merah yang berarti merah itu tebal, berenergi, dan warna yang menyimbolkan kekuatan, kepercayaan diri serta kekuatan."
+    },
+    {
+      "image": "/Assets/Karya/4.webp",
+      "title": "MOVE ON",
+      "description": "lukisan ini dibuat ketika sedang dalam titik terendah , pelukis sedang menggambarkan bagaimana dirinya agar bisa bangkit setelah melewati terjalnya kehidupan. Fase move on disini berarti pelukis ingin melupakan segala hal yang buruk dan kembali menikmati hidup 'life after break up'."
+    },
+    {
+      "image": "/Assets/Karya/5.webp",
+      "title": "SEHARI DI DANAU",
+      "description": " lukisan ini beraliran naturalisme, di dalam lukisan ini menggambarkan sebuah danau dengan latar waktu siang menjelang sore hari."
+    },
+    {
+      "image": "/Assets/Karya/6.webp",
+      "title": "MANUSIA DALAM KESEDIHAN",
+      "description": " filosofi dalam lukisan ini menceritakan tentang kesedihann seseorang terombang ambing dalam harapan serta ketidakpastian seseorang yang berusaha mencari apa makna dari kehidupan."
+    },
+    {
+      "image": "/Assets/Karya/7.webp",
+      "title": "PANEN",
+      "description": " lukisan tersebut beraliran naturalisme yang menggambarkan petani Indonesia sedang panen padi. "
+    },
+    {
+      "image": "/Assets/Karya/8.jpeg",
+      "title": "KASIH IBU",
+      "description": "Lukisan dengan judul 'Kasih Ibu' ini merupakan ekspresi saya terhadap pengalaman masa lalu. Seperti yang sudah ada di atas kanvas yaitu objek seorang ibu dan anaknya. Tampak seorang ibu sedang menyuapi makanan kepada anaknya.Tidak pernah ada keluh kesah dari seorang ibu selama merawat dan membesarkan anaknya. Kasih sayang yang diberikan kepada anak anaknya akan terus mengalir sepanjang masa. "
+    },
+    {
+      "image": "/Assets/Karya/9.jpeg",
+      "title": "PASAR TRADISIONAL",
+      "description": " Lukisan ini beraliran realisme objek pada lukisan ini fokus padaa suasana pasar tradisional dimana terdapat penjual dan pembeli saling berinteraksi."
+    },
+    {
+      "image": "/Assets/Karya/10.jpeg",
+      "title": "AKU DAN WARNA KEHIDUPAN",
+      "description": "Lukisan mix media ini mengeksplorasi self-portrait yang menggambarkan perjalanan emosi, identitas, dan refleksi diri seniman. Warna digunakan untuk menyampaikan emosi—palet hangat untuk energi dan semangat, sementara warna dingin untuk introspeksi. Komposisi elemen yang bertumpuk menciptakan harmoni dan menonjolkan dualitas manusia. Karya ini mengajak penonton menyelami potret diri yang tidak hanya tentang wajah, tetapi juga jiwa dan makna di balik setiap elemen visual, menjadi dialog antara seniman dengan dirinya sendiri melalui kebebasan kreatif mix media."
+    },
+    {
+      "image": "/Assets/Karya/11.jpeg",
+      "title": "DANCING QUEEN",
+      "description": "Lukisan 'Rhapsody in Red: Dancing Queen' menampilkan sosok perempuan berenergi dan anggun di tengah keramaian kota. Berbalut gaun merah yang melambangkan keberanian, ia berdansa di bawah sorotan lampu dan bayangan gedung pencakar langit. Gerakan dinamisnya dilukis dengan sapuan kuas tegas namun cair, memadukan realisme dan abstraksi. Latar belakang kota semi-abstrak dengan gedung terdistorsi dan lampu bersinar menegaskan kontras antara energi manusia dan keteguhan urban. Karya ini mengajak penonton merasakan kebebasan jiwa, dengan sosok 'Dancing Queen' sebagai simbol harapan dan ekspresi diri dalam kehidupan penuh tantangan, merayakan momen kecil namun bermakna dalam hidup."
+    },
+    {
+      "image": "/Assets/Karya/12.webp",
+      "title": "FREEDOM IN THE BLAZE",
+      "description": "The phrase 'freedom in the blaze' can be interpreted as a symbol of liberation found amidstturmoil and upheaval. The word 'blaze' refers to a roaring fire, often symbolizing a significantevent, chaos, or a transformative force. In this context, 'freedom in the blaze' reflects how, even when trapped in situations full of challenges or suffering, one can discover true freedom. It is a freedom born from the struggle itself, where the fire does not signify destruction, but rather a cleansing force that clears the way for new opportunities and deeper understanding."
+    },
+    {
+      "image": "/Assets/Karya/13.jpeg",
+      "title": "HARMONI LAUT DAN DOA",
+      "description": "Lukisan ini menggambarkan tradisi penghormatan terhadap laut melalui ritual sesajen, memadukan unsur alam, spiritualitas, dan budaya. Tekstur goresan kuas dan detail warna menciptakan suasana khusyuk dan magis, sementara simbolisme seperti asap dupa dan warna alami mencerminkan hubungan harmonis antara manusia dan alam semesta. Karya ini menjadi penghormatan visual terhadap budaya maritim yang kaya, serta pengingat pentingnya menjaga hubungan spiritual dan ekologis dengan laut."
+    },
+    {
+      "image": "/Assets/Karya/14.jpeg",
+      "title": "SAPA ALAM DI KAKI GUNUNG",
+      "description": "Di lembah gunung yang memukau, hamparan sawah hijau membentang laksana permadani, dihiasi oleh barisan pepohonan yang menari di bawah bayangan puncak. Rumah-rumah penduduk berdiri hangat, seperti bisikan kehidupan yang berpadu dengan tenangnya alam. Kabut tipis menggantung  di pagi hari, memeluk perkampungan yang bersahaja. Lukisan ini merayakan harmoni sempurna antara manusia dan alam, di mana setiap sudutnya adalah napas kehidupan."
+    },
+    {
+      "image": "/Assets/Karya/15.jpg",
+      "title": "SIMFONI WAKTU",
+      "description": "Karya ini merayakan pertemuan masa lalu dan masa kini melalui simfoni objek yang berbeda asal dan makna, namun berpadu harmonis. Botol Jack Daniel's mewakili kehidupan urban yang gemerlap, sementara botol Tiera de Fuego membawa nuansa eksotis dan misterius. Botol keramik mencerminkan tradisi dan keabadian, sedangkan tempat nginang menjadi simbol nostalgia akan masa lalu yang tenang. Rokok cerutu hadir sebagai penghubung antarcerita, dengan asapnya yang metaforis menyiratkan kelindan masa lalu, kini, dan masa depan. Lukisan ini adalah puisi visual tentang keberagaman, harmoni, dan kerinduan pada waktu yang terus bergerak."
+    }
+  ];
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    const galleryImages = document.querySelectorAll('.gallery-image');
+    const modal = document.getElementById('preview-modal');
+    const modalImage = document.getElementById('modal-image');
+    const modalTitle = document.getElementById('modal-title')?.querySelector('span:last-child');
+    const modalDescription = document.getElementById('modal-description');
+    const closeButton = document.getElementById('close-modal');
+
+    // Debugging: Check if elements are found
+    console.log('modal:', modal);
+    console.log('modalImage:', modalImage);
+    console.log('modalTitle:', modalTitle);
+    console.log('modalDescription:', modalDescription);
+    console.log('closeButton:', closeButton);
+
+    if (!modal || !modalImage || !modalTitle || !modalDescription || !closeButton) {
+      console.error('One or more modal elements not found!');
+      return;
+    }
+
+    galleryImages.forEach(img => {
+      img.addEventListener('click', () => {
+        const index = parseInt(img.getAttribute('data-index') || '0');
+        const painting = paintings[index];
+
+        // Debugging: Log the painting data
+        console.log('Selected painting:', painting);
+
+        // Update modal content without TypeScript assertions
+        (modalImage as HTMLImageElement).src = painting.image;
+        (modalImage as HTMLImageElement).alt = painting.title;
+        modalTitle.textContent = painting.title;
+        modalDescription.textContent = painting.description;
+
+        // Debugging: Verify image source
+        console.log('Setting modal image src to:', painting.image);
+
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    closeButton.addEventListener('click', () => {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow = '';
+    });
+    
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+      }
+    });
+  });
+</script>

@@ -1,0 +1,107 @@
+<header class="relative w-full bg-white border-b-2 border-black px-4 py-4">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <!-- Logo -->
+    <div class="flex items-center">
+      <a href="/" class="relative">
+        <h1 class="text-3xl font-bold font-mono tracking-tight">
+          <span class="relative z-10">RISANG</span>
+          <span class="absolute bottom-0 left-0 w-full h-2 bg-yellow-300 -z-10"></span>
+        </h1>
+      </a>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button 
+      id="mobile-toggle" 
+      class="md:hidden text-2xl focus:outline-none z-50"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center space-x-8 text-xl font-medium">
+      <a href="/" class="relative group">
+        Home
+        <span class="absolute bottom-0 left-0 w-full h-1 bg-pink-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></span>
+      </a>
+      <a href="#about" class="relative group">
+        About
+        <span class="absolute bottom-0 left-0 w-full h-1 bg-blue-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></span>
+      </a>
+      <a href="/painting" class="relative group">
+        My Works
+        <span class="absolute bottom-0 left-0 w-full h-1 bg-green-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></span>
+      </a>
+    </nav>
+  </div>
+
+  <!-- Mobile Navigation -->
+  <nav 
+    id="mobile-menu" 
+    class="hidden md:hidden flex-col space-y-4 absolute top-full left-0 w-full bg-white border-b-2 border-black px-4 py-4 text-xl font-medium z-40"
+  >
+    <a href="/" class="relative group py-2">
+      Home
+      <span class="absolute bottom-0 left-0 w-full h-1 bg-pink-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></span>
+    </a>
+    <a href="#about" class="relative group py-2">
+      About
+      <span class="absolute bottom-0 left-0 w-full h-1 bg-blue-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></span>
+    </a>
+    <a href="/painting" class="relative group py-2">
+      My Works
+      <span class="absolute bottom-0 left-0 w-full h-1 bg-green-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></span>
+    </a>
+  </nav>
+</header>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const toggleButton = document.getElementById('mobile-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (toggleButton && mobileMenu) {
+    toggleButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      const isHidden = mobileMenu.classList.contains('hidden');
+      
+      if (isHidden) {
+        mobileMenu.classList.remove('hidden');
+        mobileMenu.classList.add('flex');
+      } else {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('flex');
+      }
+    });
+
+    // Close menu when clicking a link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function() {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('flex');
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!mobileMenu.contains(e.target as Node) && !toggleButton.contains(e.target as Node) && !mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('flex');
+      }
+    });
+  }
+  });
+</script>
+
+<style>
+/* Add these to your header.css */
+.animate-fade {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+</style>

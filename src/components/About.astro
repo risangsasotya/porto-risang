@@ -1,0 +1,127 @@
+---
+import "../styles/animations.css";
+---
+<section id="about" class="bg-transparent min-h-screen px-4 sm:px-8 md:px-20 py-12">
+  <h1 class="text-4xl sm:text-5xl font-bold mb-8 md:mb-12 tracking-tight animate-fadeIn">
+    <span class="relative inline-block">
+      About Me
+      <span class="absolute -bottom-4 left-0 w-full h-3 bg-pink-300 z-0"></span>
+    </span>
+  </h1>
+  
+  <div class="grid grid-cols-12 gap-4 md:gap-8 items-center">
+    <!-- Text Content -->
+    <div class="font-medium col-span-12 md:col-span-7 space-y-4 md:space-y-6 order-2 md:order-1 animate-slideInLeft">
+      <p class="text-base md:text-2xl leading-relaxed">
+        Hallo, perkenalkan nama saya Risang Sasotyaningtyas! Saya berdomisili Malang, Prov. Jawa Timur.
+      </p>
+      <p class="text-base md:text-2xl leading-relaxed">
+        Dan saat ini saya sedang menempuh pendidikan S1 Progam Studi Pendidikan Seni Rupa, di Universitas Negeri Malang. 
+        Selain itu saya memang memiliki cukup banyak pengalaman dalam bidang seni rupa, khususnya lukisan yang beraliran naturalis realis. 
+      </p>
+      
+      <!-- Buttons -->
+      <div class="flex flex-col gap-4 mt-6 w-full max-w-md mx-auto sm:mx-0 sm:flex-row sm:flex-wrap sm:max-w-none">
+        <!-- CV Button with Link -->
+        <a 
+          href="/public/Assets/CV-RISANG-S-2024.pdf"
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="relative px-44 py-3 text-base font-bold bg-blue-400 text-white rounded-full overflow-hidden group transform transition-transform duration-300 hover:scale-105 sm:w-auto sm:px-10 sm:py-4 sm:text-lg"
+        >
+          <span class="relative z-10"><i class="fas fa-file-alt mr-2"></i>CV</span>
+          <span class="absolute top-0 left-0 w-full h-full bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+          <span class="absolute -bottom-1 -right-1 w-6 h-6 bg-yellow-300 rounded-full z-0 sm:w-8 sm:h-8"></span>
+        </a>
+        
+        <!-- Work Button with Link -->
+        <a 
+          href="/painting" 
+          class="relative px-28 py-3 text-base font-bold bg-pink-400 text-white rounded-full overflow-hidden group transform transition-transform duration-300 hover:scale-105 sm:w-auto sm:px-10 sm:py-4 sm:text-lg"
+        >
+          <span class="relative z-10"><i class="fas fa-palette mr-2"></i>Check out my work</span>
+          <span class="absolute -bottom-1 -right-1 w-6 h-6 bg-blue-300 rounded-full z-0 sm:w-8 sm:h-8"></span>
+        </a>
+        
+        <!-- Contact Button with Dropdown -->
+        <div class="relative w-full sm:w-auto" id="contact-container">
+          <button 
+            class="relative px-36 py-3 text-base font-bold bg-green-400 text-white rounded-full overflow-hidden transform transition-transform duration-300 hover:scale-105 sm:w-auto sm:px-10 sm:py-4 sm:text-lg"
+            id="contact-btn"
+          >
+            <span class="relative z-10"><i class="fas fa-address-card mr-2"></i>Contact me</span>
+            <span class="absolute -bottom-1 -right-1 w-6 h-6 bg-pink-300 rounded-full z-0 sm:w-8 sm:h-8"></span>
+          </button>
+          
+          <!-- Hidden Social Media Buttons with Links -->
+          <div 
+            class="absolute left-0 mt-2 hidden flex-col gap-2 z-50 animate-fastFadeIn pointer-events-auto" 
+            id="contact-dropdown"
+          >
+            <a 
+              href="https://api.whatsapp.com/send/?phone=%2B6285704028141&text&type=phone_number&app_absent=0" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="px-6 py-2 bg-green-500 text-white text-base font-bold rounded-full flex items-center gap-2 transform transition-transform duration-300 hover:scale-105 sm:px-8 sm:py-3 sm:text-lg"
+            >
+              <i class="fab fa-whatsapp"></i>
+              WhatsApp
+            </a>
+            <a 
+              href="https://www.instagram.com/risangsasotya/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="px-6 py-2 bg-purple-500 text-white text-base font-bold rounded-full flex items-center gap-2 transform transition-transform duration-300 hover:scale-105 sm:px-8 sm:py-3 sm:text-lg"
+            >
+              <i class="fab fa-instagram"></i>
+              Instagram
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Image Area -->
+    <div class="col-span-12 md:col-span-5 flex justify-center md:justify-end order-1 md:order-2 mb-8 md:mb-0 animate-slideInRight">
+      <div class="relative">
+        <div class="w-64 h-64 sm:w-72 sm:h-72 md:w-96 md:h-96 lg:w-104 lg:h-104 rounded-full bg-yellow-300 relative overflow-hidden animate-pulse">
+          <div class="absolute -top-1 -left-1 right-1 bottom-1 rounded-full border-4 border-white z-10">
+            <img src="/Assets/risang.webp" alt="Risang Sasotyaningtyas" class="w-full h-full object-cover rounded-full" />
+          </div>
+        </div>
+        
+        <div class="absolute -top-4 -left-4 md:-top-6 md:-left-6 w-12 h-12 md:w-16 md:h-16 z-0 text-blue-400 hidden sm:block animate-float">
+          <i class="fas fa-brush text-3xl md:text-5xl transform -rotate-12"></i>
+        </div>
+        
+        <div class="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 w-12 h-12 md:w-16 md:h-16 z-0 text-pink-400 hidden sm:block animate-float-delayed">
+          <i class="fas fa-palette text-3xl md:text-5xl transform rotate-12"></i>
+        </div>
+        
+        <div class="absolute -bottom-2 -left-2 md:-bottom-4 md:-left-4 w-16 h-16 md:w-24 md:h-24 bg-blue-400 rounded-full z-0 opacity-60 animate-bounce"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const contactBtn = document.getElementById('contact-btn');
+    const contactDropdown = document.getElementById('contact-dropdown');
+
+    if (contactBtn && contactDropdown) {
+      contactBtn.addEventListener('click', function(e) {
+        contactDropdown.classList.toggle('hidden');
+        contactDropdown.classList.toggle('flex');
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!contactBtn.contains(e.target as Node) && !contactDropdown.contains(e.target as Node)) {
+          contactDropdown.classList.add('hidden');
+          contactDropdown.classList.remove('flex');
+        }
+      });
+    }
+  });
+</script>
