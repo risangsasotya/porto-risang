@@ -46,23 +46,23 @@ import Footer from "../shared/footer.astro";
   <!-- Contact Button with Dropdown -->
 <div class="relative w-full sm:w-auto" id="contact-container">
   <button 
-    class="relative w-full px-28 py-3 text-base font-bold bg-green-400 text-white rounded-full overflow-hidden transform transition-transform duration-300 hover:scale-105 sm:w-auto sm:px-10 sm:py-4 sm:text-lg"
+    class="relative w-full px-28 py-3 text-sm font-bold bg-green-400 text-white rounded-full overflow-hidden transform transition-transform duration-300 hover:scale-105 sm:w-auto sm:px-10 sm:py-4 sm:text-lg"
     id="contact-btn"
   >
     <span class="relative z-10"><i class="fas fa-address-card mr-2"></i>Contact me</span>
-    <span class="absolute -bottom-1 -right-1 w-6 h-6 bg-pink-300 rounded-full z-0 sm:w-8 sm:h-8"></span>
+    <span class="absolute -bottom-1 -right-1 w-5 h-5 bg-pink-300 rounded-full z-0 sm:w-8 sm:h-8"></span>
   </button>
   
   <!-- Hidden Social Media Buttons with Links -->
   <div 
-    class="absolute left-0 mt-2 hidden flex-row gap-2 z-50 animate-fastFadeIn pointer-events-auto" 
+    class="absolute left-0 mt-2 hidden flex-row flex-wrap gap-1 z-50 animate-fastFadeIn pointer-events-auto" 
     id="contact-dropdown"
   >
     <a 
       href="https://api.whatsapp.com/send/?phone=%2B6285704028141&text&type=phone_number&app_absent=0" 
       target="_blank" 
       rel="noopener noreferrer" 
-      class="px-6 py-2 bg-green-500 text-white text-base font-bold rounded-full flex items-center gap-2 transform transition-transform duration-300 hover:scale-105 sm:px-8 sm:py-3 sm:text-lg"
+      class="px-4 py-2 bg-green-500 text-white text-sm font-bold rounded-full flex items-center gap-1 transform transition-transform duration-300 hover:scale-105 sm:px-6 sm:py-3 sm:text-lg"
     >
       <i class="fab fa-whatsapp"></i>
       WhatsApp
@@ -71,7 +71,7 @@ import Footer from "../shared/footer.astro";
       href="https://www.instagram.com/riiisanggg?igsh=aGFreGF6enYyNWI0" 
       target="_blank" 
       rel="noopener noreferrer" 
-      class="px-6 py-2 bg-purple-500 text-white text-base font-bold rounded-full flex items-center gap-2 transform transition-transform duration-300 hover:scale-105 sm:px-8 sm:py-3 sm:text-lg"
+      class="px-4 py-2 bg-purple-500 text-white text-sm font-bold rounded-full flex items-center gap-1 transform transition-transform duration-300 hover:scale-105 sm:px-6 sm:py-3 sm:text-lg"
     >
       <i class="fab fa-instagram"></i>
       Instagram
@@ -80,7 +80,7 @@ import Footer from "../shared/footer.astro";
       href="https://www.linkedin.com/in/risangsasotya/" 
       target="_blank" 
       rel="noopener noreferrer" 
-      class="px-6 py-2 bg-blue-500 text-white text-base font-bold rounded-full flex items-center gap-2 transform transition-transform duration-300 hover:scale-105 sm:px-8 sm:py-3 sm:text-lg"
+      class="px-4 py-2 bg-blue-500 text-white text-sm font-bold rounded-full flex items-center gap-1 transform transition-transform duration-300 hover:scale-105 sm:px-6 sm:py-3 sm:text-lg"
     >
       <i class="fab fa-linkedin"></i>
       Linkedin
